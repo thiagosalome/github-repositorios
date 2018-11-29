@@ -1,0 +1,43 @@
+{
+  "name": "meus_repositorios",
+  "version": "1.0.0",
+  "description": "Aplicação criada utilizando a API do Git na intenção de trabalhar conceitos de ES6 e Webpack.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --mode=development -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagosalome/meus_repositorios.git"
+  },
+  "keywords": [
+    "git",
+    "api",
+    "webpack",
+    "es6"
+  ],
+  "engines": {
+    "node": ">=8.9.1",
+    "npm": ">=6.4.1"
+  },
+  "author": "Thiago Gonçalves Salomé",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thiagosalome/meus_repositorios/issues"
+  },
+  "homepage": "https://github.com/thiagosalome/meus_repositorios#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@types/webpack": "^4.4.19",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.1",
+    "node-sass": "^4.10.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
