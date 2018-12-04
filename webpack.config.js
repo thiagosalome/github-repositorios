@@ -2,7 +2,7 @@ const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry : "./src/main.js",
+  entry : "./src/assets/js/main.js",
   output : {
     path : path.resolve(__dirname, "dist"),
     filename : "bundle.js"
@@ -38,11 +38,12 @@ module.exports = {
   plugins : [
     new htmlWebpackPlugin({
       template : path.resolve(__dirname, "./src/index.pug"),
-      filename : "index.html"
+      filename : "index.html",
+      title : "Meus Repositórios"
     })
   ],
   devServer : {
-    contentBase : path.resolve(__dirname, "src"),
+    contentBase : path.resolve(__dirname, "./src/"),
     open : true
   }
 }
