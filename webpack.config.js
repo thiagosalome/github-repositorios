@@ -1,7 +1,10 @@
+const path = require("path");
+const htmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
-  entry : "./src/app.js",
+  entry : "./src/main.js",
   output : {
-    path : __dirname + "/dist",
+    path : path.resolve(__dirname, "dist"),
     filename : "bundle.js"
   },
   module : {
@@ -9,16 +12,38 @@ module.exports = {
       {
         test : /\.js$/,
         exclude : /node_modules/,
-        use : ["babel-loader"]
+        use : {
+          loader : "babel-loader",
+          options : {
+            presets : ["@babel/preset-env"]
+          }
+        }
       },
       {
         test : /\.scss$/,
-        use : ["style-loader", "css-loader", "sass-loader"]
+        use : [
+          "style-loader",
+          "css-loader",
+          "sass-loader"
+        ]
+      },
+      {
+        test : /\.pug$/,
+        use : {
+          loader : "pug-loader"
+        }
       }
     ]
   },
+  plugins : [
+    new htmlWebpackPlugin({
+      template : path.resolve(__dirname, "./src/index.pug"),
+      filename : "index.html"
+    })
+  ],
   devServer : {
-    contentBase : __dirname + "/dist"
+    contentBase : path.resolve(__dirname, "src"),
+    open : true
   }
 }
 
