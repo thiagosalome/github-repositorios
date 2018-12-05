@@ -1,0 +1,84 @@
+.login{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+  width: 400px;
+
+  &__avatar{
+    border-radius: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin: 10px auto;
+    @include backgroundGradient();
+
+    img{
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  &__title{
+    font-weight: 300;
+    text-align: center;
+    margin: 10px 0;
+    color: $font-default;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__description{
+    color: $font-default;
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: 300;
+    margin: 10px 0 20px;
+  }
+
+  &__form{
+
+    .field{
+      position: relative;
+
+      label{
+        position: absolute;
+        top: 0;
+        left: 5px;
+        color: $font-default;
+        z-index: -1;
+      }
+
+      input{
+        border: none;
+        border-bottom: 2px solid $primary-color;
+        width: 100%;
+        padding: 5px;
+        color: $font-default;
+        outline: none;
+        background-color: transparent;
+        z-index: 1;
+      }
+    }
+
+    input[type="submit"]{
+      width: 100%;
+      background: #0bc759;
+      padding: 10px 20px;
+      width: 100%;
+      border: none;
+      border-radius: 3px;
+      color: $white;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 20px 0 0;
+      cursor: pointer;
+    }
+  }
+}

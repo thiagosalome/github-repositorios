@@ -4,6 +4,20 @@
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6, a, p, input{
+h1, h2, h3, h4, h5, h6, a, p, input, label{
   font-family: 'Montserrat', sans-serif;
+}
+
+a{
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+}
+
+.container{
+  max-width: 1280px;
+  padding: 0 20px;
+  margin: auto;
 }

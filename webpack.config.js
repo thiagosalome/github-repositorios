@@ -37,14 +37,19 @@ module.exports = {
   },
   plugins : [
     new htmlWebpackPlugin({
-      template : path.resolve(__dirname, "./src/index.pug"),
+      template : path.resolve(__dirname, "./src/assets/views/index.pug"),
       filename : "index.html",
-      title : "Meus Repositórios"
+      title : "Meus Repositórios | Sign"
+    }),
+    new htmlWebpackPlugin({
+      template : path.resolve(__dirname, "./src/assets/views/internal.pug"),
+      filename : "internal.html",
+      title : "Meus Repositórios | Interna"
     })
   ],
   devServer : {
-    contentBase : path.resolve(__dirname, "./src/"),
-    open : true
+    contentBase : path.resolve(__dirname, "src"),
+    open : true,
   }
 }
 

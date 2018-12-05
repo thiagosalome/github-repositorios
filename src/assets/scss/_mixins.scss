@@ -1,0 +1,12 @@
+@mixin backgroundGradient {
+  background: linear-gradient(-150deg, $primary-color, $secondary-color);
+}
+
+@mixin limitText($lines) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  max-height: $lines * 1.5;
+}

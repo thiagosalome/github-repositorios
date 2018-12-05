@@ -1,0 +1,33 @@
+.header{
+  background-color: rgba(0,0,0,0.2);
+  width: 100%;
+  height: 80px;
+
+  &--internal{
+    @include backgroundGradient();
+  }
+
+  &__logo{
+    text-align: center;
+    line-height: 80px;
+    font-size: 25px;
+
+    a{
+      text-decoration: none;
+      color: $white;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span{
+        font-weight: lighter;
+      }
+
+      img{
+        width: 35px;
+        margin-right: 10px;
+      }
+    }
+  }
+}

@@ -1,123 +1,19 @@
 @import "default";
 @import "variables";
+@import "mixins";
+@import "sections/tabs";
+@import "sections/repositories";
+@import "sections/header";
+@import "sections/login";
 
 .main{
-  background: linear-gradient(-150deg, $primary-color, $secondary-color);
+  @include backgroundGradient();
   height: 100vh;
   width: 100%;
   position: relative;
-}
 
-.header{
-  background-color: rgba(0,0,0,0.2);
-  width: 100%;
-  height: 80px;
-
-  &__logo{
-    text-align: center;
-    line-height: 80px;
-    font-size: 25px;
-
-    a{
-      text-decoration: none;
-      color: $white;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      span{
-        font-weight: lighter;
-      }
-
-      img{
-        width: 35px;
-        margin-right: 10px;
-      }
-    }
-  }
-}
-
-.login{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
-
-  &__avatar{
-    border-radius: 100%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(-150deg, #369ACD, #4D6FBE);
-    margin: 10px auto;
-
-    img{
-      width: 50px;
-      height: 50px;
-    }
-  }
-
-  &__title{
-    font-weight: 300;
-    text-align: center;
-    margin: 10px 0;
-    color: $font-default;
-    font-size: 20px;
-    font-weight: 600;
-  }
-
-  &__description{
-    color: $font-default;
-    font-size: 15px;
-    font-family: sans-serif;
-    font-weight: 300;
-    margin: 10px 0 20px;
-  }
-
-  &__form{
-
-    .field{
-      position: relative;
-
-      label{
-        position: absolute;
-        top: 0;
-        left: 5px;
-        color: $font-default;
-        z-index: -1;
-      }
-
-      input{
-        border: none;
-        border-bottom: 1px solid $primary-color;
-        width: 100%;
-        padding: 5px;
-        color: $font-default;
-        outline: none;
-        background-color: transparent;
-        z-index: 1;
-      }
-    }
-
-    input[type="submit"]{
-      width: 100%;
-      background: #0bc759;
-      padding: 10px 20px;
-      width: 100%;
-      border: none;
-      border-radius: 3px;
-      color: $white;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin: 20px 0 0;
-      cursor: pointer;
-    }
+  &--internal{
+    background: #eeeeee;
+    height: auto;
   }
 }
