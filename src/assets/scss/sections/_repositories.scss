@@ -12,7 +12,8 @@
   padding: 20px;
   background-color: $white;
   height: auto;
-  flex-basis: 250px;
+  // flex-basis: 250px;
+  width: 250px;
   margin: 10px;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
 
@@ -39,26 +40,28 @@
     }
 
     &-name{
-      font-size: 18px;
-      color: $font-default;
-      margin: 10px 0;
+      font-size: 16px;
+      color: $primary-color;
+      margin: 10px 0 20px;
       text-align: center;
-      font-weight: 300;
+      font-weight: bold;
     }
   }
 
   &__name{
     font-size: 18px;
-    color: $primary-color;
+    color: $font-default;
     margin: 10px 0;
     text-align: center;
+    font-weight: 300;
   }
 
   &__description{
     font-size: 15px;
     color: $font-default;
     text-align: justify;
-    margin: 10px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #cccccc;
     @include limitText(3);
   }
 
@@ -66,6 +69,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 15px 0 5px;
 
     li{
       display: flex;

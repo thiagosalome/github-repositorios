@@ -4,7 +4,7 @@ html(lang="pt-br")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Document
+    title Meus Repositórios | Interna
   body
     main.main.main--internal
       header.header.header--internal
@@ -16,10 +16,19 @@ html(lang="pt-br")
               span Repositórios
       nav.tabs
         ul
+          li.tabs__item.active
+            a(href="", title="Meus Repositórios") Meus Repositórios
           li.tabs__item
-            a Meus Repositórios
-          li.tabs__item
-            a Favoritos
+            a(href="", title="Favoritos") Favoritos
+      section.search
+        .container
+          input(type="search", name="", placehold="Busque o respositório desejado")
+          button Buscar
+      section.favorites
+        .container
+          .favorites__empty
+            img(src="./assets/images/blank.png", alt="")
+            h3 Você ainda não possui repositórios favoritos. Realize uma busca para adicionar.
       section.repositories
         .container
           .repositories__list

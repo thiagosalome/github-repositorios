@@ -5,6 +5,11 @@
 @import "sections/repositories";
 @import "sections/header";
 @import "sections/login";
+@import "sections/search";
+
+body{
+  background: #eeeeee;
+}
 
 .main{
   @include backgroundGradient();
@@ -13,7 +18,7 @@
   position: relative;
 
   &--internal{
-    background: #eeeeee;
+    background: transparent;
     height: auto;
   }
 }
