@@ -8,9 +8,9 @@
   }
 
   &__logo{
-    text-align: center;
     line-height: 80px;
     font-size: 25px;
+    display: inline-block;
 
     a{
       text-decoration: none;
@@ -18,10 +18,11 @@
       font-weight: bold;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: start;
 
       span{
         font-weight: lighter;
+        margin-left: 10px;
       }
 
       img{
@@ -29,5 +30,80 @@
         margin-right: 10px;
       }
     }
+  }
+
+  &__user{
+    float: right;
+    display: flex;
+    align-items: center;
+    line-height: 80px;
+
+    &-avatar{
+      @include avatar();
+      background-color: $white;
+
+      img{
+        max-width: 100%;
+      }
+    }
+
+    &-name{
+      color: $white;
+      font-weight: bold;
+      margin: 0 15px;
+    }
+  }
+
+  &__arrow{
+    display: flex;
+    align-items: center;
+
+    &:hover{
+      cursor: pointer;
+    }
+
+    &::after{
+      border-top: 5px solid $white;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      content: '';
+    }
+  }
+
+  &__box{
+    background-color: $white;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    right: 15px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+    top: 80px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s ease-in-out;
+
+    &.active{
+      top: 60px;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &::before{
+      position: absolute;
+      top: -5px;
+      right: 5px;
+      border-bottom: 5px solid $white;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      content: '';
+    }
+
+    a{
+      color: $primary-color;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
   }
 }

@@ -11,17 +11,27 @@ html(lang="pt-br")
         .container
           h1.header__logo
             a(href="#" title="Meus Repositórios")
-              img(src="./assets/images/database.png", alt="Meus Repositórios" title="Meus Repositórios")
-              | Meus
+              img(src="./assets/images/logo.png", alt="Meus Repositórios" title="Meus Repositórios")
+              | GitHub
               span Repositórios
+          .header__user
+            figure.header__user-avatar
+              img(src="./assets/images/programmer.png", alt="", title="")
+            p.header__user-name Thiago
+            span.header__arrow.js-header-arrow
+          .header__box.js-header-box
+            a(href="", title="") Logout
       nav.tabs
         ul
           li.tabs__item.js-tabs-item.active(data-tab="Meus Repositorios")
             a(href="", title="Meus Repositórios") Meus Repositórios
           li.tabs__item.js-tabs-item(data-tab="Favoritos")
             a(href="", title="Favoritos") Favoritos
-      include ./includes/favorites.pug
+          li.tabs__item.js-tabs-item(data-tab="Buscar")
+            a(href="", title="Buscar") Buscar
       include ./includes/repositories.pug
+      include ./includes/favorites.pug
+      include ./includes/search.pug
       
 
               

@@ -19,6 +19,7 @@ li{
 .container{
   padding: 0 20px;
   margin: auto;
+  position: relative;
   
   @media (max-width: 575px){
     max-width: auto;
