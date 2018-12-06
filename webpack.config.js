@@ -47,6 +47,7 @@ module.exports = {
       title : "Meus Repositórios | Interna"
     })
   ],
+  devtool : "inline-source-map", // Para desenvolvimento. No produção usa-se source-map
   devServer : {
     contentBase : path.resolve(__dirname, "src"),
     open : true,
