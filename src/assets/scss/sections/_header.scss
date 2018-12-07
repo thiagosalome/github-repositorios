@@ -38,6 +38,10 @@
     align-items: center;
     line-height: 80px;
 
+    &:hover{
+      cursor: pointer;
+    }
+
     &-avatar{
       @include avatar();
       background-color: $white;
@@ -57,10 +61,6 @@
   &__arrow{
     display: flex;
     align-items: center;
-
-    &:hover{
-      cursor: pointer;
-    }
 
     &::after{
       border-top: 5px solid $white;

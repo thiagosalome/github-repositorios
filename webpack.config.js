@@ -2,7 +2,7 @@ const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry : "./src/assets/js/main.js",
+  entry : ["@babel/polyfill", "./src/assets/js/main.js"],
   output : {
     path : path.resolve(__dirname, "dist"),
     filename : "bundle.js"
@@ -15,7 +15,8 @@ module.exports = {
         use : {
           loader : "babel-loader",
           options : {
-            presets : ["@babel/preset-env"]
+            presets : ["@babel/preset-env"],
+            plugins : ["@babel/plugin-transform-async-to-generator"]
           }
         }
       },

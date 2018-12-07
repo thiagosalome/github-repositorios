@@ -20,9 +20,10 @@ html(lang="pt-br")
           img(src="./assets/images/programmer.png", alt="")
         h2.login__title Bem Vindo
         p.login__description Digite seu usuário do GitHub
-        form.login__form(action="", method="post")
+        form.login__form.js-login-form(action="", method="post")
           .field
-            input(type="text", name="usuario")
-            label(for="") Usuário
-          input(type="submit", value="Sign In")
+            input.js-login-user(type="text", name="usuario", id="user")
+            label(for="user") Usuário
+          input(type="submit", value="Login")
+        p.login__message.js-login-message Mensagem
     

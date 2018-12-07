@@ -1,13 +1,15 @@
 class Logout{
   constructor(){
-    this.headerArrow = document.querySelector(".js-header-arrow");
+    this.headerUser = document.querySelector(".js-header-user");
     this.headerBox = document.querySelector(".js-header-box");
   }
 
   toggleBox(){
-    this.headerArrow.addEventListener("click", e => {
-      this.headerBox.classList.toggle("active");
-    });
+    if(this.headerUser !== null){
+      this.headerUser.addEventListener("click", e => {
+        this.headerBox.classList.toggle("active");
+      });
+    }
   }
 }
 
