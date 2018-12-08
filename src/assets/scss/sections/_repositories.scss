@@ -17,7 +17,6 @@
   padding: 20px;
   background-color: $white;
   height: auto;
-  // flex-basis: 250px;
   width: 250px;
   margin: 10px;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
@@ -59,13 +58,13 @@
     font-size: 15px;
     color: $font-default;
     text-align: justify;
-    padding: 10px 0;
-    border-bottom: 1px solid #cccccc;
+    margin: 10px 0;
     @include limitText(3);
   }
-
+  
   &__info{
     display: flex;
+    border-top: 1px solid #cccccc;
     align-items: center;
     justify-content: space-between;
     padding: 15px 0 5px;

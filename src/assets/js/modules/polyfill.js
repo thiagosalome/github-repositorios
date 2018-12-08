@@ -1,5 +1,5 @@
 class Polyfill{
-  constructor(){
+  static config(){
     // NodeList forEach
     if (window.NodeList && !NodeList.prototype.forEach) {
       NodeList.prototype.forEach = function (callback, thisArg) {

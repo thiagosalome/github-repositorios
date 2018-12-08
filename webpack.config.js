@@ -52,6 +52,7 @@ module.exports = {
   devServer : {
     contentBase : path.resolve(__dirname, "src"),
     open : true,
+    port: 9000
   }
 }
 

@@ -11,8 +11,8 @@ html(lang="pt-br")
       header.header
         .container
           h1.header__logo
-            a(href="#" title="Meus Repositórios")
-              img(src="./assets/images/logo.png", alt="Meus Repositórios" title="Meus Repositórios")
+            a(href="#" title="GitHub Repositórios")
+              img(src="./assets/images/logo.png", alt="GitHub Repositórios" title="GitHub Repositórios")
               | GitHub
               span Repositórios 
       .login
@@ -22,7 +22,7 @@ html(lang="pt-br")
         p.login__description Digite seu usuário do GitHub
         form.login__form.js-login-form(action="", method="post")
           .field
-            input.js-login-user(type="text", name="usuario", id="user")
+            input.js-login-username(type="text", name="usuario", id="user")
             label(for="user") Usuário
           input(type="submit", value="Login")
         p.login__message.js-login-message Mensagem

@@ -8,6 +8,8 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $lines;
+  line-height: 22px;
+  height: (22 * $lines) + px
 }
 
 @mixin avatar {
