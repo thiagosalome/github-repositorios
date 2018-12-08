@@ -52,6 +52,7 @@
     margin: 10px 0;
     text-align: center;
     font-weight: 300;
+    @include limitText(1);
   }
 
   &__description{

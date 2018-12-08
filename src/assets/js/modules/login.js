@@ -1,10 +1,10 @@
 import api from "./api";
 import Repositories from "./repositories";
+import Message from "./message";
 class Login{
   constructor(){
     this.loginUserName = document.querySelector(".js-login-username");
     this.loginForm = document.querySelector(".js-login-form");
-    this.loginMessage = document.querySelector(".js-login-message");
     this.userName = document.querySelector(".js-user-name");
     this.userAvatar = document.querySelector(".js-user-avatar");
   }
@@ -25,11 +25,11 @@ class Login{
         localStorage.setItem("user", JSON.stringify(response.data));
         location = "internal.html";
       } catch (error) {
-        this.showMessage("Usuário não existe.");
+        Message.show("Usuário não existe.");
       }
     }
     else{
-      this.showMessage("Campo usuário vazio");
+      Message.show("Campo usuário vazio");
     }
   }
 
@@ -53,21 +53,10 @@ class Login{
 
   configRepositories(){
     const repositories = new Repositories();
-    repositories.search();
+    repositories.registerHandlers();
     repositories.list();
     repositories.favorites();
   }
-
-  showMessage(message){
-    let loginMessage = this.loginMessage;
-    loginMessage.innerHTML = message;
-    loginMessage.classList.add("active");
-    setTimeout(function (){
-      loginMessage.classList.remove("active");
-      loginMessage.innerHTML = "";
-    }, 2000);
-  }
-
 }
 
 export default Login;
