@@ -10,7 +10,8 @@ class Logout{
     if(this.headerLogout !== null){
       this.headerLogout.addEventListener("click", e =>{
         e.preventDefault();
-        localStorage.clear();
+        window.user.info = "";
+        localStorage.setItem("user", JSON.stringify(window.user));
         location = "index.html";
       });
     }

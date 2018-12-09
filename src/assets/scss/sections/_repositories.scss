@@ -10,6 +10,14 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+
+    @media (max-width: 991px){
+      justify-content: center;
+    }
+
+    a:hover .repository__favorite{
+      display: block;
+    }
   }
 }
 
@@ -20,9 +28,25 @@
   width: 250px;
   margin: 10px;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+  position: relative;
 
   &:nth-child(4n+0){
     margin-right: 0;
+  }
+
+  &__favorite{
+    display: none;
+    background-image: url("../images/favorite.png");
+    background-size: cover;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 15px;
+    top: 15px;
+
+    &.active{
+      background-image: url('../images/favorite_active.png');
+    }
   }
 
   &__owner{

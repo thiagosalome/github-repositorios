@@ -7,6 +7,19 @@
     display: block;
   }
 
+  &__title{
+    margin: 20px auto 30px;
+    color: $font-lighter;
+    width: 650px;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+  }
+
   input{
     height: 35px;
     width: 400px;
@@ -16,6 +29,10 @@
     box-shadow: 0 5px 5px rgba(0,0,0,0.1);
     outline: none;
     margin-bottom: 30px;
+    
+    @media (max-width: 767px) {
+      width: 65%;
+    }
   }
 
   button{

@@ -22,9 +22,11 @@ class Login{
     if(this.loginUserName.value.trim() !== ""){
       try {
         const response = await api.get(`/users/${this.loginUserName.value}`);
-        localStorage.setItem("user", JSON.stringify(response.data));
+        window.user.info = response.data;
+        localStorage.setItem("user", JSON.stringify(window.user));
         location = "internal.html";
       } catch (error) {
+        console.log(error);
         Message.show("Usuário não existe.");
       }
     }
@@ -34,10 +36,9 @@ class Login{
   }
 
   setDataUser(){
-    this.user = JSON.parse(localStorage.getItem("user"));
-    if(this.user !== null && typeof this.user === "object"){
+    if(window.user.info !== null && typeof window.user.info === "object"){
       if(location.pathname === "/internal.html" ){
-        const {name, avatar_url} = JSON.parse(localStorage.getItem("user"));
+        const {name, avatar_url} = window.user.info;
         this.userName.innerHTML = name;
         this.userAvatar.querySelector("img").setAttribute("src", avatar_url);
         this.configRepositories();
@@ -55,7 +56,7 @@ class Login{
     const repositories = new Repositories();
     repositories.registerHandlers();
     repositories.list();
-    repositories.favorites();
+    repositories.updateFavorites();
   }
 }
 

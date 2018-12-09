@@ -1,6 +1,9 @@
 section.search.js-content-item(data-content="Buscar")
   .container
-    input.js-text-search(type="search", placeholder="Busque o respositório desejado")
-    button.js-btn-search Buscar
+    h3.search__title 
+      | Os resultados são restritos a 30 repositórios. Caso deseje adicionar um repositório específico, escreva o nome do administrador do repositório antes.
+    form.search__form.js-search-form
+      input.js-search-text(type="search", placeholder="Busque o respositório desejado")
+      button Buscar
     p.message.js-message Mensagem
     .repositories__list.js-repositories-search

@@ -33,6 +33,12 @@ module.exports = {
         use : {
           loader : "pug-loader"
         }
+      },
+      {
+        test : /\.(png|jpg|gif|svg)$/,
+        use: {
+          loader : "file-loader"
+        }
       }
     ]
   },
