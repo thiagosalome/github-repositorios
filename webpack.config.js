@@ -1,12 +1,41 @@
 const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
+const miniCssExtractPlugin = require("mini-css-extract-plugin");
+const uglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const optimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const copyWebpackPlugin = require('copy-webpack-plugin');
+
+const devMode = process.env.NODE_ENV == "development";
 
 module.exports = {
   entry : ["@babel/polyfill", "./src/assets/js/main.js"],
   output : {
     path : path.resolve(__dirname, "dist"),
-    filename : "bundle.js"
+    filename : "assets/js/bundle.js"
   },
+  plugins : [
+    new htmlWebpackPlugin({
+      template : path.resolve(__dirname, "./src/assets/views/index.pug"),
+      filename : "index.html",
+      title : "Meus Repositórios | Sign"
+    }),
+    new htmlWebpackPlugin({
+      template : path.resolve(__dirname, "./src/assets/views/internal.pug"),
+      filename : "internal.html",
+      title : "Meus Repositórios | Interna"
+    }),
+    new miniCssExtractPlugin({
+      filename : "./assets/css/[name].min.css"
+    }),
+    new copyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, 'src/assets/images/'),
+        to: path.resolve(__dirname, 'dist/assets/images'),
+        ignore: ['svgs/*'],
+        cache: true
+      }
+    ])
+  ],
   module : {
     rules : [
       {
@@ -23,9 +52,13 @@ module.exports = {
       {
         test : /\.scss$/,
         use : [
-          "style-loader",
-          "css-loader",
-          "sass-loader"
+          devMode ? {loader : "style-loader"} : {loader : miniCssExtractPlugin.loader},
+          {
+            loader : "css-loader"
+          },
+          {
+            loader : "sass-loader"
+          }
         ]
       },
       {
@@ -37,23 +70,25 @@ module.exports = {
       {
         test : /\.(png|jpg|gif|svg)$/,
         use: {
-          loader : "file-loader"
+          loader : "file-loader",
+          options : {
+            name : "[name].[ext]",
+            outputPath : "./assets/images/"
+          }
         }
       }
     ]
   },
-  plugins : [
-    new htmlWebpackPlugin({
-      template : path.resolve(__dirname, "./src/assets/views/index.pug"),
-      filename : "index.html",
-      title : "Meus Repositórios | Sign"
-    }),
-    new htmlWebpackPlugin({
-      template : path.resolve(__dirname, "./src/assets/views/internal.pug"),
-      filename : "internal.html",
-      title : "Meus Repositórios | Interna"
-    })
-  ],
+  optimization : {
+    minimizer: [
+      // new uglifyJsPlugin({
+      //   cache: true,
+      //   parallel: true,
+      //   sourceMap: true // set to true if you want JS source maps
+      // }),
+      new optimizeCssAssetsPlugin({})
+    ]
+  },
   devtool : "inline-source-map", // Para desenvolvimento. No produção usa-se source-map
   devServer : {
     contentBase : path.resolve(__dirname, "src"),
