@@ -4,6 +4,7 @@ const miniCssExtractPlugin = require("mini-css-extract-plugin");
 const uglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const optimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const copyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
 
 const devMode = process.env.NODE_ENV == "development";
 
@@ -34,7 +35,20 @@ module.exports = {
         ignore: ['svgs/*'],
         cache: true
       }
-    ])
+    ]),
+    // new HtmlCriticalWebpackPlugin({
+    //   base: path.resolve(__dirname, 'dist'),
+    //   src: 'internal.html',
+    //   dest: 'internal.html',
+    //   inline: true,
+    //   minify: true,
+    //   extract: true,
+    //   width: 1300,
+    //   height: 900,
+    //   penthouse: {
+    //     blockJSRequests: false,
+    //   }
+    // })
   ],
   module : {
     rules : [
@@ -72,8 +86,7 @@ module.exports = {
         use: {
           loader : "file-loader",
           options : {
-            name : "[name].[ext]",
-            outputPath : "./assets/images/"
+            name : "../images/[name].[ext]",
           }
         }
       }
@@ -81,11 +94,11 @@ module.exports = {
   },
   optimization : {
     minimizer: [
-      // new uglifyJsPlugin({
-      //   cache: true,
-      //   parallel: true,
-      //   sourceMap: true // set to true if you want JS source maps
-      // }),
+      new uglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true // set to true if you want JS source maps
+      }),
       new optimizeCssAssetsPlugin({})
     ]
   },

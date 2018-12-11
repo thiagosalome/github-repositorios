@@ -37,7 +37,7 @@ class Login{
 
   setDataUser(){
     if(window.user.info !== null && typeof window.user.info === "object"){
-      if(location.pathname === "/internal.html" ){
+      if(location.href.indexOf("internal") > -1){
         const {name, avatar_url} = window.user.info;
         this.userName.innerHTML = name;
         this.userAvatar.querySelector("img").setAttribute("src", avatar_url);
