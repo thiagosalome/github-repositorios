@@ -103,9 +103,6 @@ $ git clone https://github.com/thiagosalome/github-repositorios
 # Acesse a pasta do projeto no seu terminal/cmd
 $ cd github-repositorios
 
-# Vá para a pasta da aplicação Front End
-$ cd web
-
 # Instale as dependências
 $ npm install
 
